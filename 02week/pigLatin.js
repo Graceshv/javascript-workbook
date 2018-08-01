@@ -8,12 +8,26 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
-
-  // Your code here
-
+function pigLatin(str) {
+  //arr1 to new array
+  const arr1 = arr2(str);
+  if(arr1 > 0) {
+    //take letters before vowel, add to end of word, and add "ay"
+    return str.slice(arr1) + str.slice(0, arr1) + "ay";
+  }
+  //if word starts with vowel, just add "yay" to end of word
+  return str + "yay";
 }
-
+//
+funciton arr2(str) {
+  for (let i=0; i<str.length; i++) {
+    //locate vowels and check value and type
+    if("aeiou".indexOf(str[i]) !== -1) {
+      return i;
+    }
+  }
+}
+// console.log(pigLatin("hello"));
 
 function getPrompt() {
   rl.question('word ', (answer) => {
